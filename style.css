@@ -481,7 +481,6 @@ button:disabled {
 }
 
 .hamburger {
-
   position: fixed;
   top: 24px;
   left: 24px;
@@ -498,7 +497,6 @@ button:disabled {
 }
 
 .hamburger:hover {
-  background: rgba(255, 255, 255, 0.25);
   transform: scale(1.05);
 }
 
