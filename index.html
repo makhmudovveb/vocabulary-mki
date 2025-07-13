@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vocabulary quiz | MKI</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="logoblack-removebg-preview.png" type="image/x-icon" />
+  <!-- Можно добавить фавиконку в <head> для вкладки браузера -->
+  <link rel="icon" href="favicon.ico" />
+</head>
+
+<body>
+  <div class="hamburger" id="hamburgerBtn">
+    ☰
+  </div>
+  
+  <div class="layout">
+    <div class="sidebar">
+      <div class="logo-block">
+        <img src="logo.ico" alt="MKI Logo" class="main-logo" />
+        <h2>Profile</h2> 
+      </div>
+      <div id="authBlockSidebar" class="hidden">
+        <!-- Блок регистрации в сайдбаре (скрыт, теперь регистрация в центре) -->
+      </div>
+      <div id="userBlock" class="hidden">
+        <p style="color: #fff;">Hello, <strong style="text-shadow: 0 0 5px rgba(255, 179, 71, 0.8); font-size: larger;" id="username"></strong>!</p>
+        <button id="logoutBtn">Log out</button>
+        <h3>Statistic</h3>
+        <ul id="quizStats"></ul>
+      </div>
+      <div id="adminPanel" class="hidden">
+        <button id="clearStatsBtn" style="margin-bottom: 15px; background: #ff6f00; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
+          Clear all statistics
+        </button>
+        <h3>Admin panel</h3>
+        <div id="adminStats"></div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="container">
+        <h1>Choice of words</h1>
+        <div class="level-selector">
+          <select id="levelSelect">
+            <option value="">-- Select a level --</option>
+            <option value="elementary">Elementary</option>
+            <option value="pre-intermediate">Pre-Intermediate</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="upper-intermediate">Upper-Intermediate</option>
+            <option value="ielts">IELTS</option>
+          </select>
+          <select id="unitSelect">
+            <option value="">-- Select a unit --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <button id="startQuiz" disabled>Start quiz</button>
+          <div id="quizCountDisplay" style="margin-top:10px; font-weight:600; color:#0d47a1;"></div>
+
+        </div>
+        <table id="wordList">
+          <thead>
+            <tr>
+              <th>Russian</th>
+              <th>English</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="2">Choose level and unit</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальное окно для авторизации (центральное) -->
+  <div class="modal hidden" id="authModal">
+    <div class="modal-content auth-content">
+      <img src="favicon.ico" alt="Иконка сайта" class="site-icon" />
+      <h2>
+        Log In / Register
+      </h2>
+      <input type="text" id="login" placeholder="Login" autocomplete="username" />
+      <input type="password" id="password" placeholder="Password" autocomplete="current-password" />
+      <div id="togglePasswordWrapper">
+        <input type="checkbox" class="hidden" id="togglePassword" /> <label for="togglePassword">Show password</label>
+      </div>
+      <button id="loginBtn">Log In / Register</button>
+      <p id="authMsg" style="color: red; font-size: 0.9em;"></p>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="quizModal">
+    <div class="modal-content">
+      <div id="timer">00:20</div>
+      <h2 id="quizTitle">Questions</h2>
+      <p id="quizQuestion">The question will appear here</p>
+      <input type="text" id="userAnswer" placeholder="Введите перевод" autocomplete="off" />
+      <button id="submitAnswer">Answer</button>
+      <div id="feedback"></div>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="resultModal">
+    <div class="modal-content" id="resultContainer">
+      <h2>Results</h2>
+      <p>Correct✅: <span id="resultCorrect">0</span></p>
+      <p>Wrong❌: <span id="resultWrong">0</span></p>
+      <button onclick="location.reload()">End</button>
+    </div>
+  </div>
+  <div id="overlay"></div> <!-- Добавь рядом с .sidebar -->
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
