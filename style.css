@@ -493,7 +493,7 @@ button:disabled {
   color: #ffb347;
   user-select: none;
   transition: background 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
+  z-index: 100000;
 }
 
 .hamburger:hover {
@@ -505,7 +505,10 @@ button:disabled {
 @media (max-width: 768px) {
   .hamburger {
     display: block;
-    z-index: 1000;
+    position: fixed;
+    left: 24px;
+    top: 24px;
+    z-index: 10000;
   }
 
   .main-content {
@@ -528,6 +531,7 @@ button:disabled {
 
   .sidebar.open {
     transform: translateX(0);
+    z-index: 100;
   }
 }
 
