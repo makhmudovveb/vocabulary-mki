@@ -361,6 +361,8 @@ window.addEventListener("load", () => {
   }
 });
 
+
+
 hamburgerBtn.addEventListener("click", () => {
   sidebar.classList.add("open");
   overlay.classList.add("active");
@@ -372,6 +374,7 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("active");
   hamburgerBtn.style.removeProperty("display");
 });
+
 
 window.addEventListener("click", (e) => {
   if (window.innerWidth <= 768 &&
