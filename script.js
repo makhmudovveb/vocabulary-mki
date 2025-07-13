@@ -375,6 +375,7 @@ overlay.addEventListener("click", () => {
   hamburgerBtn.style.removeProperty("display");
 });
 
+
 window.addEventListener("click", (e) => {
   if (window.innerWidth <= 768 &&
       sidebar.classList.contains("open") &&
