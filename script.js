@@ -362,20 +362,24 @@ window.addEventListener("load", () => {
 });
 
 hamburgerBtn.addEventListener("click", () => {
-  sidebar.classList.toggle("open");
-  overlay.classList.toggle("active");
+  sidebar.classList.add("open");
+  overlay.classList.add("active");
+  hamburgerBtn.style.display = "none";
 });
 
-overlay.addEventListener('click', () => {
-  sidebar.classList.remove('open');
-  overlay.classList.remove('active');
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+  overlay.classList.remove("active");
+  hamburgerBtn.style.removeProperty("display");
 });
 
 window.addEventListener("click", (e) => {
-  if (window.innerWidth <= 768 && sidebar.classList.contains("open") &&
-      !sidebar.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+  if (window.innerWidth <= 768 &&
+      sidebar.classList.contains("open") &&
+      !sidebar.contains(e.target) &&
+      !hamburgerBtn.contains(e.target)) {
     sidebar.classList.remove("open");
     overlay.classList.remove("active");
+    hamburgerBtn.style.removeProperty("display");
   }
 });
-
