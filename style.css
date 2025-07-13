@@ -503,17 +503,16 @@ button:disabled {
 
 
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-    position: fixed;
-    left: 24px;
-    top: 24px;
-    z-index: 10000;
-  }
-
   .main-content {
     position: relative; 
     padding: 20px 40px;  
+  }
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000; /* выше сайдбара */
   }
 
   .sidebar {
@@ -522,16 +521,16 @@ button:disabled {
     left: 0;
     height: 100%;
     width: 280px;
-    background: linear-gradient(135deg, #0d47a1, #1e88e5);
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    z-index: 1020;
+    z-index: 1500;
   }
 
   .sidebar.open {
     transform: translateX(0);
-    z-index: 100;
+  }
+
+  #overlay.active {
+    display: block;
   }
 }
-
