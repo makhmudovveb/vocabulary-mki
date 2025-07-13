@@ -363,26 +363,39 @@ window.addEventListener("load", () => {
 
 
 
-hamburgerBtn.addEventListener("click", () => {
+// ✅ Показ/скрытие гамбургера с классом .hidden-hamburger
+
+function openSidebar() {
   sidebar.classList.add("open");
   overlay.classList.add("active");
-  hamburgerBtn.style.display = "none";
-});
+  hamburgerBtn.classList.add("hidden-hamburger");
+}
 
-overlay.addEventListener("click", () => {
+function closeSidebar() {
   sidebar.classList.remove("open");
   overlay.classList.remove("active");
-  hamburgerBtn.style.removeProperty("display");
+  hamburgerBtn.classList.remove("hidden-hamburger");
+}
+
+// При клике на гамбургер
+hamburgerBtn.addEventListener("click", (e) => {
+  e.stopPropagation(); // Чтобы окно не закрылось мгновенно
+  openSidebar();
 });
 
+// При клике на overlay
+overlay.addEventListener("click", () => {
+  closeSidebar();
+});
 
+// При клике вне сайдбара (на окне)
 window.addEventListener("click", (e) => {
-  if (window.innerWidth <= 768 &&
-      sidebar.classList.contains("open") &&
-      !sidebar.contains(e.target) &&
-      !hamburgerBtn.contains(e.target)) {
-    sidebar.classList.remove("open");
-    overlay.classList.remove("active");
-    hamburgerBtn.style.removeProperty("display");
+  if (
+    window.innerWidth <= 768 &&
+    sidebar.classList.contains("open") &&
+    !sidebar.contains(e.target) &&
+    !hamburgerBtn.contains(e.target)
+  ) {
+    closeSidebar();
   }
 });

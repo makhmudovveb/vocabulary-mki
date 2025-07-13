@@ -457,6 +457,9 @@ button:disabled {
   text-align: center;
   margin-bottom: 30px;
 }
+.hidden-hamburger {
+  display: none !important;
+}
 
 .main-logo {
   width: 170px;
