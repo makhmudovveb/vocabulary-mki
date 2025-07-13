@@ -363,6 +363,8 @@ window.addEventListener("load", () => {
 
 
 
+
+
 // ✅ Показ/скрытие гамбургера с классом .hidden-hamburger
 
 function openSidebar() {
@@ -388,14 +390,14 @@ overlay.addEventListener("click", () => {
   closeSidebar();
 });
 
+
+
 // При клике вне сайдбара (на окне)
 window.addEventListener("click", (e) => {
-  if (
-    window.innerWidth <= 768 &&
-    sidebar.classList.contains("open") &&
-    !sidebar.contains(e.target) &&
-    !hamburgerBtn.contains(e.target)
-  ) {
-    closeSidebar();
+  if (window.innerWidth <= 768 && sidebar.classList.contains("open") &&
+      !sidebar.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active");
   }
 });
+
